@@ -1,36 +1,36 @@
 'use strict'
 
-const apple = 15.678;
-const banana = 90.2345;
-const kiwi = 123.965;
+const APPLE = 15.678;
+const BANANA = 90.2345;
+const KIWI = 123.965;
 
-console.log(`Максимальна ціна ${Math.max(apple, banana, kiwi)}`);
-console.log(`Мінімальна ціна ${Math.min(apple, banana, kiwi)}`);
+console.log(`Максимальна ціна ${Math.max(APPLE, BANANA, KIWI)}`);
+console.log(`Мінімальна ціна ${Math.min(APPLE, BANANA, KIWI)}`);
 
-const sum = apple + banana + kiwi;
-const sumFloor = Math.floor(apple) + Math.floor(banana) + Math.floor(kiwi)
+const SUM = APPLE + BANANA + KIWI;
+const SUM_FLOOR = Math.floor(APPLE) + Math.floor(BANANA) + Math.floor(KIWI);
 
-console.log(`Сума вартості всіх товарів ${sum}`);
-console.log(`Сума товарів без копійок ${sumFloor}`);
+console.log(`Сума вартості всіх товарів ${SUM}`);
+console.log(`Сума товарів без копійок ${SUM_FLOOR}`);
 
-console.log(`Сума товарів округлена до сотень ${Math.round(sum/100)*100}`);
-if(sumFloor%2 === 0){
+console.log(`Сума товарів округлена до сотень ${Math.round(SUM / 100) * 100}`);
+if(SUM_FLOOR % 2 === 0){
     console.log("Сума всіх товарів є парним числом");
 } else {
     console.log("Сума всіх товарів є непарним числом");
 }
 
-console.log(`Решта ${500-sum}`);
+console.log(`Решта ${500 - SUM}`);
 
-console.log(`Середнє значення ${(sum/3).toFixed(2)}`);
+console.log(`Середнє значення ${(SUM / 3).toFixed(2)}`);
 
-const discount = Math.round(Math.random()*100)
-console.log(`Випадкова знижка ${discount}%`);
+const DISCOUNT = Math.round(Math.random() * 100)
+console.log(`Випадкова знижка ${DISCOUNT}%`);
 
-const discountSum = (sum*(1-(discount/100))).toFixed(2);
-console.log(`Сума до сплати зі знижкою ${discountSum}`);
+const DISCOUNT_SUM = (SUM * (1 - (DISCOUNT / 100))).toFixed(2);
+console.log(`Сума до сплати зі знижкою ${DISCOUNT_SUM}`);
 
-console.log(`Чистий прибуток ${(discountSum-(sumFloor/2)).toFixed(2)}`);
+console.log(`Чистий прибуток ${(DISCOUNT_SUM - (SUM_FLOOR / 2)).toFixed(2)}`);
 
 
 
