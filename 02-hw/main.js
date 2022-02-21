@@ -32,12 +32,9 @@ let sum = 0;
 //щоб цикл кожного разу не перевіряв boolean, однак сказали, що краще щоб був один цикл. 
 
 for (numN; numN <= numM; numN++){
-    if(boolean){
-        if(numN % 2 === 1 || numN % 2 === -1){ // врахувала можливість введення від'ємних чисел
-            sum += numN
-        }
-    } else {
-        sum += numN
-    }
+    if(boolean && numN % 2 === 0){
+        continue;
+    } 
+    sum += numN
 }
 console.log(sum);
