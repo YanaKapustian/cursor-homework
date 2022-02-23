@@ -49,9 +49,10 @@ const getRandomNumber = function(min, max) {
 
 const countLetter = function(letter, word) {
     const arr = word.toLowerCase().split('');
+    const finalLetter = letter.toLowerCase();
     let counter = 0;
     for (let i = 0; i < arr.length; i++){
-        if (letter.toLowerCase() === arr[i]){
+        if (finalLetter === arr[i]){
             counter++
         }
     }
@@ -68,6 +69,7 @@ const convertCurrency = function(sum) {
     if (sum.toLowerCase().includes('uah')){
         return sum.slice(0, -3) / RATE + '$'
     }
+    return 'Unknown currency'
 }
 
 
@@ -75,11 +77,9 @@ const convertCurrency = function(sum) {
 //9. Створіть функцію генерації випадкового паролю (тільки числа)
 
 const getRandomParol = function(number = 8) {
-    let i = 0;
     let parol = '';
-    while (i < number){
+    for (let i = 0; i < number; i++) {
         parol += Math.round(Math.random() * 9)
-        i++
     }
     return parol
 }
@@ -107,6 +107,17 @@ function isPalyndrom(word) {
     return finalWord === finalWord.split('').reverse().join('')
 }
 
+function deleteDuplicateLetter(string) {
+    let str = string.toLowerCase().replaceAll(' ', '')
+    const arr = str.split('')
+    for (let i = 0; i < arr.length; i++) {
+        if (countLetter(arr[i], str) > 1){
+            str = str.replaceAll(arr[i], '')
+        }
+    }
+    return str
+}
+
 console.log(`Функція 1: ${getMaxDigit(129706)}`)
 console.log(`Функція 2: ${numToThePow(2,-1)}`);
 console.log(`Функція 3: ${nameFormation("янА")}`);
@@ -118,3 +129,4 @@ console.log(`Функція 7: ${convertCurrency('5200uah')}`);
 console.log(`Функція 9: ${getRandomParol(6)}`);
 console.log(`Функція 11: ${deleteLetters('b', 'bee bilingual bbba')}`);
 console.log(`Функція 12: ${isPalyndrom('Я несу гусеня')}`);
+console.log(`Функція 13: ${deleteDuplicateLetter('Бісквіт був дуже ніжним')}`);
