@@ -7,54 +7,42 @@ function getRandomArray(length, min, max) {
 }
 console.log("Рандомний масив", getRandomArray(10, 1, 50));
 
-function getModa(...numbers) {
+function getModa(...nums) {
     //викорустовую об'єкти, бо колись зустрічала схоже завдання
+    let numbers = nums.filter(num => Number.isInteger(num))
     let obj = {};
-    let res = [];
     let moda = [];
     for (let i = 0; i < numbers.length; i++) {
-        if (Number.isInteger(numbers[i])) {
-            if (obj[numbers[i]]) {
-                obj[numbers[i]] += 1;
-            } else {
-                obj[numbers[i]] = 1;
-                res.push(numbers[i])
-            }
+        if (obj[numbers[i]]) {
+            obj[numbers[i]] += 1;
+        } else {
+            obj[numbers[i]] = 1;
         }
     }
-    res.sort((a, b) => obj[b] - obj[a])
+    let max = Math.max(...Object.keys(obj))
     //оскільки мод може буде декілька, то перевіряю, чи є елементи з такою ж частотою, як і перший елемент відсортованого масиву
-    for (let i = 0; i < res.length; i++) {
-        if (obj[res[i]] == obj[res[0]]) {
-            moda.push(res[i])
+    let keys = Object.keys(obj)
+    for (let i = 0; i < keys.length; i++) {
+        if (obj[keys[i]] == obj[max]) {
+            moda.push(+keys[i])
         }
     }
     return moda;
 }
 console.log('Мода', getModa(1, 2, 2, 3, 4, 3, 2, 5, 5, 5));
 
-function getAverage(...numbers) {
+function getAverage(...nums) {
+    let numbers = nums.filter(num => Number.isInteger(num))
     let sum = 0;
-    let count = 0;
-    //рахуємо кількість нецілих чисел, якщо такі є, і віднімаємо від загальної довжини масиву
     for (let i = 0; i < numbers.length; i++) {
-        if (Number.isInteger(numbers[i])) {
-            sum += numbers[i]
-        } else {
-            count++
-        }
+        sum += numbers[i]
     }
-    return sum / (numbers.length - count);
+    return sum / numbers.length;
 }
 console.log('Середнє значення', getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 165.3));
 
 function getMedian(...numbers) {
-    let arr = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (Number.isInteger(numbers[i])) {
-            arr.push(numbers[i])
-        }
-    }
+    let arr = numbers.filter(num => Number.isInteger(num))
     arr.sort((a, b) => a - b);
     if (arr.length % 2 === 0) {
         let middle = arr.length / 2;
@@ -90,16 +78,12 @@ console.log('Числа, які діляться на 5', getDividedByFive(6, 2,
 
 function replaceBadWords(string) {
     let badWords = ['fuck', 'shit']
-    let str = ''
     for (let i = 0; i < badWords.length; i++) {
-        if (string.includes(badWords[i])) {
-            let index = string.indexOf(badWords[i])
-            str += string.slice(0, index)
-            str += '*'.repeat(badWords[i].length)
-            str += string.slice(index + badWords[i].length)
+        while (string.includes(badWords[i])) {
+            string = string.replace(badWords[i], '*'.repeat(badWords[i].length))
         }
     }
-    return str
+    return string
 }
 console.log(replaceBadWords("Are you fucking kidding?"));
 console.log(replaceBadWords("It's bullshit!"));
