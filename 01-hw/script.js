@@ -32,6 +32,17 @@ console.log(`Сума до сплати зі знижкою ${DISCOUNT_SUM}`);
 
 console.log(`Чистий прибуток ${(DISCOUNT_SUM - (SUM_FLOOR / 2)).toFixed(2)}`);
 
+for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, 0)
+    setTimeout(() => {
+        console.log(i);
+    }, 1000)
+}
+
+
+
 
 
 
