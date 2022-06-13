@@ -3,17 +3,17 @@ const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 
 function getMyTaxes(salary) {
-    return Number((this.tax * salary).toFixed(3));
+    return Number((this.tax * salary).toFixed(2));
 }
 console.log(getMyTaxes.call(ukraine, 2000));
 
 function getMiddleTaxes() {
-    return Number((this.tax * this.middleSalary).toFixed(3));
+    return Number((this.tax * this.middleSalary).toFixed(2));
 }
 console.log(getMiddleTaxes.call(ukraine));
 
 function getTotalTaxes() {
-    return Number((this.tax * this.middleSalary * this.vacancies).toFixed(3));
+    return Number((this.tax * this.middleSalary * this.vacancies).toFixed(2));
 }
 console.log(getTotalTaxes.call(ukraine));
 
