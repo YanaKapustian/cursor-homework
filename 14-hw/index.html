@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 14</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Star wars</h1>
+        <div class="options">
+            <div class="input-block">
+                <label for="film-input" class="text">Get information about characters<br> of the film (<i>enter a number</i>)</label>
+                <input type="text" id="film-input" placeholder="№">
+                <p><button class="btn-input">Find</button></p>
+            </div>
+            <div class="planets-block">
+                <p class="text">Get the list of all the planets. <span class="page hidden">Page <span class="page-counter"></span>/3</span></p>
+                <button class="btn-show">Show</button>
+                <button class="btn-next hidden">Next</button>
+            </div>
+            <div class="translate-block">
+                <p class="text">Translate into Wookie language</p>
+                <button class="btn-translate">Translate</button>
+                <button class="btn-stop-translate hidden">Stop</button>
+            </div>
+        </div>
+        <div class="content"> 
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
