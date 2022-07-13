@@ -111,22 +111,24 @@ function countPages() {
     }
 }
 
-btnTranslate.addEventListener('click', translateIntoWookiee)
+btnTranslate.addEventListener('click', translateIntoWookiee);
 
 function translateIntoWookiee() {
     bool = true;
+    wookiee_lang = '?format=wookiee';
     content.innerHTML = '';
-    btnTranslate.classList.add('hidden')
-    btnStopTranslate.classList.remove('hidden')
-    page.classList.add('hidden')
+    btnTranslate.classList.add('hidden');
+    btnStopTranslate.classList.remove('hidden');
+    page.classList.add('hidden');
 }
 
 btnStopTranslate.addEventListener("click", stopTranslating);
 
 function stopTranslating() {
   bool = false;
+  wookiee_lang = '';
   content.innerHTML = "";
   btnTranslate.classList.remove("hidden");
   btnStopTranslate.classList.add("hidden");
-  page.classList.add('hidden')
+  page.classList.add('hidden');
 }
